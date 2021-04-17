@@ -1,0 +1,49 @@
+body{
+    border: 0.5rem dotted chocolate;
+    margin:2rem;
+}
+.container{
+    background-color: beige;
+    margin-top:1rem;
+}
+h1{
+    margin:1rem -25rem 0rem 29rem;
+    color: chocolate;
+}
+span{
+    color:burlywood;
+}
+.mixed_img{
+    width: 25rem;
+}
+.mixedImg_col{
+    margin-left:4rem;
+    margin-top:6rem;
+}
+.ninja_img{
+    margin-left:-3rem;
+}
+.cat_img{
+    margin-left:53rem;
+}
+
+.doubleImg_row{
+    margin-top:-16rem;
+    margin-bottom:2rem;
+}
+
+img{
+    position: relative;
+}
+
+.preview_btn{
+    width:20rem;
+    height: 3rem;
+    margin-bottom:1.5rem;
+    margin-top: 1.5rem;
+    margin-left: 27rem;
+}
+.preview_span{
+    color:chocolate;
+    font-weight: 700;
+}

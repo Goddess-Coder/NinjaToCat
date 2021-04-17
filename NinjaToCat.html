@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja To Cat Puzzle</title>
+
+    <!-- styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="NinjaToCat.css">
+
+    <!-- jquery -->
+    <!-- create a seperate file for the functionality of query -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        // page load
+        $(document).ready(function () {
+            // hiding the preview photos & photos to be changed 
+            $(".doubleImg_row").hide();
+            $(".photoChange_row").hide();
+
+            // function to run when an cat image is clicked
+            $(".cat").click(function () {
+                var clickedimg = $(this).attr('data-alt-src')
+                var clickedimgSrc = $(this).attr("src");
+                // function to run to compare the src of an image
+                // then replace the paired image
+                function replacePhoto(clickedimg, clickedimgSrc) {
+                    var ninja_arr = ["zero", "one", "two", "three", "four"];
+                    // for looping through ninja_arr
+                    for (var n in ninja_arr) {
+                        if (ninja_arr[n] == clickedimg) {
+                            var ninja_group = [".ninjaZero", ".ninjaOne", ".ninjaTwo", ".ninjaThree", ".ninjaFour"];
+                            // for looping through the  ninja class
+                            for (var ng in ninja_group) {
+                                if(n == ng) {
+                                    var catgroup = ["imgs/cat0.png", "imgs/cat1.png", "imgs/cat2.png", "imgs/cat3.png", "imgs/cat4.png"];
+                                    // for looping through the catgroup to confirm
+                                    // the image source
+                                    for (var c in catgroup){
+                                        if (catgroup[c] == clickedimgSrc){
+                                            if (c == 0) {
+                                                $(".catZero").attr("src", "imgs/ninja0.png");
+                                            }
+                                            if (c == 1) {
+                                                $(".catOne").attr("src", "imgs/ninja1.png");
+                                            }
+                                            if (c == 2) {
+                                                $(".catTwo").attr("src", "imgs/ninja2.png");
+                                            }
+                                            if (c == 3) {
+                                                $(".catThree").attr("src", "imgs/ninja3.png");
+                                            }
+                                            else if (c == 4) {
+                                                $(".catFour").attr("src", "imgs/ninja4.png");
+                                            }
+                                            // end of the last (5) if statement
+                                        }
+                                        // main if of (5) statement end
+                                    }
+                                    // catgroup for loop ends
+                                }
+                                // n == ng if statement ends
+                            
+                            }
+                            // ninja_group for loop ends
+                        }
+                        // ninja_arr[n] == clickedimg if statement ends
+                    }
+                    // ninja_arr for loop ends
+                };
+                replacePhoto(clickedimg, clickedimgSrc);
+                // replacePhoto functions ends
+            })
+            // .cat click function ends
+        });
+        // cat ready doc ends
+
+
+        $(document).ready(function () {
+            // hiding the preview photos & photos to be changed 
+            $(".doubleImg_row").hide();
+            $(".photoChange_row").hide();
+
+            // function to run when an ninja image is clicked
+            $(".ninja").click(function () {
+                var clickedimg = $(this).attr('data-alt-src');
+                var clickedimgSrc = $(this).attr("src");
+                // function to run to compare the src of an image
+                // then replace the paired image
+                function ninjaReplacePhoto(clickedimg, clickedimgSrc) {
+                    var cat_arr = ["zero", "one", "two", "three", "four"];
+                    // for looping through cat_arr
+                    for (var c in cat_arr) {
+                        if (cat_arr[c] == clickedimg) {
+                            var cat_group = [".catZero", ".catOne", ".catTwo", ".catThree", ".catFour"];
+                            for (var cg in cat_group) {
+                                if (c == cg) {
+                                    var ninjagroup = ["imgs/ninja0.png", "imgs/ninja1.png", "imgs/ninja2.png", "imgs/ninja3.png", "imgs/ninja4.png"];
+
+                                    for (var n in ninjagroup) {
+                                        if (ninjagroup[n] == clickedimgSrc){
+                                            if (n == 0) {
+                                                $(".ninjaZero").attr("src", "imgs/cat0.png");
+                                            }
+                                            else if (n == 1) {
+                                                $(".ninjaOne").attr("src", "imgs/cat1.png");
+                                            }
+                                            else if (n == 2) {
+                                                $(".ninjaTwo").attr("src", "imgs/cat2.png");
+                                            }
+                                            else if (n == 3) {
+                                                $(".ninjaThree").attr("src", "imgs/cat3.png");
+                                            }
+                                            else if (n == 4) {
+                                                $(".ninjaFour").attr("src", "imgs/cat4.png");
+                                            }
+                                        // end of the last (5) if statement
+                                        }
+                                        // main if of (5) statement end
+                                    }
+                                // ninjagroup for loop ends
+
+                                }
+                            }
+                            // cat_group for loop ends
+                        }
+                        // if statement ends
+                    }
+                    // cat_arr for loop ends
+                };
+                ninjaReplacePhoto(clickedimg, clickedimgSrc);
+                // replacePhoto functions ends
+            })
+            // .ninja click function ends
+        });
+        // ninja ready doc ends
+
+        // button
+        $(document).ready(function () {
+            $(".preview_btn").click(function () {
+                $(".doubleImg_row").show(4000, function () {
+                    $(".doubleImg_row").hide();
+                });
+            });
+        });
+
+    </script>
+
+</head>
+
+<body class="body_border">
+    <!-- make body border move -->
+    <div class="container">
+        <div class="row mixedImg_row">
+            <h1><span>P</span>icture <span>P</span>uzzle</h1>
+            <!-- this row should show when page loads -->
+            <div class="col-md-4 mixedImg_col">
+                <img class="mixed_img ninjaZero ninja zero" src="imgs/ninja0.png" data-alt-src="zero"
+                    alt="Ninja HatTale">
+                <img class="mixed_img catOne cat" src="imgs/cat1.png" data-alt-src="one" alt="Cat Eyes">
+                <img class="mixed_img ninjaTwo ninja" src="imgs/ninja2.png" data-alt-src="two" alt="Ninja Face">
+                <img class="mixed_img catThree cat" src="imgs/cat3.png" data-alt-src="three" alt="Cat Body">
+                <img class="mixed_img ninjaFour ninja" src="imgs/ninja4.png" data-alt-src="four" alt="Ninja Feet">
+
+            </div>
+        </div>
+        <!-- top row -->
+
+        <div class="row photoChange_row">
+            <div class="col-md-2 cat_col">
+                <img class="cat_img catZero cat" src="imgs/cat0.png" data-alt-src="zero" alt="Cat Ears">
+                <img class="cat_img catOne cat" src="imgs/cat1.png" data-alt-src="one" alt="Cat Eyes">
+                <img class="cat_img catTwo cat" src="imgs/cat2.png" data-alt-src="two" alt="Cat Whiskers">
+                <img class="cat_img catThree cat" src="imgs/cat3.png" data-alt-src="three" alt="Cat Body">
+                <img class="cat_img catFour cat" src="imgs/cat4.png" data-alt-src="four" alt="Cat Legs">
+            </div>
+
+            <div class="col-md-2 ninja_col">
+                <img class="ninja_img ninjaZero ninja" src="imgs/ninja0.png" data-alt-src="zero" alt="Ninja HatTale">
+                <img class="ninja_img ninjaOne ninja" src="imgs/ninja1.png" data-alt-src="one" alt="Ninja Hat">
+                <img class="ninja_img ninjaTwo ninja" src="imgs/ninja2.png" data-alt-src="two" alt="Ninja Face">
+                <img class="ninja_img ninjaThree ninja" src="imgs/ninja3.png" data-alt-src="three" alt="Ninja Body">
+                <img class="ninja_img ninjaFour ninja" src="imgs/ninja4.png" data-alt-src="four" alt="Ninja Feet">
+            </div>
+        </div>
+        <!-- photoChange_row row -->
+
+        <div class="row doubleImg_row">
+            <div class="col-md-2">
+                <img class="cat_img" src="imgs/cat0.png" alt="Cat Ears">
+                <img class="cat_img" src="imgs/cat1.png" alt="Cat Eyes">
+                <img class="cat_img" src="imgs/cat2.png" alt="Cat Whiskers">
+                <img class="cat_img" src="imgs/cat3.png" alt="Cat Body">
+                <img class="cat_img" src="imgs/cat4.png" alt="Cat Legs">
+            </div>
+
+            <div class="col-md-2">
+                <img class="ninja_img" src="imgs/ninja0.png" alt="Ninja HatTale">
+                <img class="ninja_img" src="imgs/ninja1.png" alt="Ninja Hat">
+                <img class="ninja_img" src="imgs/ninja2.png" alt="Ninja Face">
+                <img class="ninja_img" src="imgs/ninja3.png" alt="Ninja Body">
+                <img class="ninja_img" src="imgs/ninja4.png" alt="Ninja Feet">
+            </div>
+        </div>
+        <!-- doubleImg_row row -->
+
+        <button class="btn btn btn-dark btn-sm preview_btn"><span class="preview_span">Preview</span></button>
+
+
+
+    </div>
+    <!-- container -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
